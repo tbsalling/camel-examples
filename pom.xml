@@ -19,10 +19,11 @@
     </properties>
 
     <modules>
-        <module>01-standalone-app/01-01-camel-standalone</module>
-        <module>01-standalone-app/01-02-camel-archetype-java</module>
-        <module>01-standalone-app/01-03-camel-archetype-spring</module>
-        <module>01-standalone-app/01-04-camel-standalone-spring-boot</module>
+        <module>01-standalone-app/01-01-camel-standalone-simple</module>
+        <module>01-standalone-app/01-02-camel-standalone-main</module>
+        <module>01-standalone-app/01-03-camel-archetype-java</module>
+        <module>01-standalone-app/01-04-camel-archetype-spring</module>
+        <module>01-standalone-app/01-05-camel-standalone-spring-boot</module>
     </modules>
 
     <build>
