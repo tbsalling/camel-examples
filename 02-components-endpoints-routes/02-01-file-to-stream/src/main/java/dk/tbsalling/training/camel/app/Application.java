@@ -22,9 +22,7 @@ public class Application {
         public void configure() throws Exception {
             from("file://src/data?noop=true")
             .split().tokenize("\n")
-            //.filter()
-            //    .simple("${body} regex '\\!..VDM,1,1,(.*)'")
-            //.end()
+            //.filter().simple("${body} regex '^\\!..VDM,1,1,.*$'")
             .filter(body().regex("^\\!..VDM,1,1,.*$"))
             .to("stream:out");
         }
