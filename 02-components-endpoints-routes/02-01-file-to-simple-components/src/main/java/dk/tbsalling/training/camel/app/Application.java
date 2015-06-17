@@ -1,11 +1,7 @@
 package dk.tbsalling.training.camel.app;
 
-import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.camel.main.Main;
-
-import static java.lang.Thread.sleep;
 
 public class Application {
 

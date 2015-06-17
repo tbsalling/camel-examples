@@ -24,7 +24,7 @@
         <module>01-standalone-app/01-03-camel-archetype-java</module>
         <module>01-standalone-app/01-04-camel-archetype-spring</module>
         <module>01-standalone-app/01-05-camel-standalone-spring-boot</module>
-        <module>02-components-endpoints-routes/02-01-file-to-stream</module>
+        <module>02-components-endpoints-routes/02-01-file-to-simple-components</module>
         <module>03-filtering-transformation-beans/03-01-filtering-strings</module>
     </modules>
 
