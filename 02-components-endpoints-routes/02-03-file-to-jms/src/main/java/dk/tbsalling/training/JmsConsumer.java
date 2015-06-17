@@ -12,7 +12,6 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
 import javax.jms.Session;
-import javax.jms.TextMessage;
 
 @Component
 public class JmsConsumer {
@@ -32,11 +31,7 @@ public class JmsConsumer {
         while(true) {
             Message message = consumer.receive();
 
-            if (message instanceof TextMessage) {
-                TextMessage textMessage = (TextMessage) message;
-                String text = textMessage.getText();
-                LOG.info("Received: " + text);
-            } else if (message instanceof ActiveMQObjectMessage) {
+            if (message instanceof ActiveMQObjectMessage) {
                 ActiveMQObjectMessage activeMQMessage = (ActiveMQObjectMessage) message;
                 LOG.info("Received: " + activeMQMessage.getObject().getClass().getSimpleName() + ": " + activeMQMessage.getObject());
             } else {
