@@ -1,0 +1,1 @@
+A simple JMS application that has its own embedded Broker.
