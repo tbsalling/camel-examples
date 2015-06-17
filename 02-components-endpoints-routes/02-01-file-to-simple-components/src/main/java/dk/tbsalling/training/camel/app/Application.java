@@ -8,7 +8,8 @@ public class Application {
     public static final RouteBuilder ROUTE_FILE_TO_FILE = new RouteBuilder() {
         @Override
         public void configure() throws Exception {
-            from("file://src/data/in?noop=true")
+            from("file://src/data/in")
+            //from("file://src/data/in?noop=true")
             .to("file://src/data/out/");
         }
     };
