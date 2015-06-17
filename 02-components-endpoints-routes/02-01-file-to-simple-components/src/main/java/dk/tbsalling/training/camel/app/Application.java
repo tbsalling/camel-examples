@@ -9,21 +9,18 @@ import static java.lang.Thread.sleep;
 
 public class Application {
 
-    public static final RouteBuilder ROUTE_BUILDER_1 = new RouteBuilder() {
+    public static final RouteBuilder ROUTE_FILE_TO_FILE = new RouteBuilder() {
         @Override
         public void configure() throws Exception {
-            from("file://src/data?noop=true")
-            .to("stream:out");
+            from("file://src/data/in?noop=true")
+            .to("file://src/data/out/");
         }
     };
 
-    public static final RouteBuilder ROUTE_BUILDER_2 = new RouteBuilder() {
+    public static final RouteBuilder ROUTE_FILE_TO_STREAM = new RouteBuilder() {
         @Override
         public void configure() throws Exception {
             from("file://src/data?noop=true")
-            .split().tokenize("\n")
-            //.filter().simple("${body} regex '^\\!..VDM,1,1,.*$'")
-            .filter(body().regex("^\\!..VDM,1,1,.*$"))
             .to("stream:out");
         }
     };
@@ -32,7 +29,7 @@ public class Application {
         Main main = new Main();
         main.enableHangupSupport();
 
-        main.addRouteBuilder(ROUTE_BUILDER_2);
+        main.addRouteBuilder(ROUTE_FILE_TO_FILE);
 
         main.run(args);
     }
