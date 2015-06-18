@@ -67,4 +67,17 @@ public class Vessel {
     public void setCourse(float course) {
         this.course = course;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Vessel{");
+        sb.append("mmsi=").append(mmsi);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", latitude=").append(latitude);
+        sb.append(", longitude=").append(longitude);
+        sb.append(", speed=").append(speed);
+        sb.append(", course=").append(course);
+        sb.append('}');
+        return sb.toString();
+    }
 }

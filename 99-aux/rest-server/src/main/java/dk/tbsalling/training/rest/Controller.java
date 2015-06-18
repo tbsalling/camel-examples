@@ -1,5 +1,7 @@
 package dk.tbsalling.training.rest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 public class Controller {
+
+    private final static Logger LOG = LoggerFactory.getLogger(Controller.class);
 
     private final Map<Integer,Vessel> vesselMap = new ConcurrentHashMap<>();
 
@@ -61,6 +65,7 @@ public class Controller {
     @RequestMapping(name = "/vessel/", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void addVessel(@RequestBody Vessel vessel) {
         vesselMap.put(vessel.getMmsi(), vessel);
+        LOG.info("Vessel created: " + vessel.toString());
     }
 
 }
