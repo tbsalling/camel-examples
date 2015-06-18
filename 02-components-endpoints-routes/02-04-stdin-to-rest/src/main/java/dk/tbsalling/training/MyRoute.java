@@ -1,7 +1,6 @@
 package dk.tbsalling.training;
 
 import org.apache.camel.Exchange;
-import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
 import org.restlet.data.MediaType;
 import org.springframework.stereotype.Component;
@@ -18,13 +17,8 @@ public class MyRoute extends RouteBuilder {
 
     public void configure() {
         from("stream:in")
-                .to("log:dk.tbsalling.training.camel")
-                .process(new Processor() {
-                    @Override
-                    public void process(Exchange exchange) throws Exception {
-                        exchange.getIn().setHeader(Exchange.CONTENT_TYPE, MediaType.APPLICATION_JSON);
-            }
-        })
+        .to("log:dk.tbsalling.training.camel")
+        .process(exchange -> exchange.getIn().setHeader(Exchange.CONTENT_TYPE, MediaType.APPLICATION_JSON))
         .to("restlet:http://localhost:8080/vessel?restletMethod=POST");
     }
 }
