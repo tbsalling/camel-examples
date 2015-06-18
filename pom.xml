@@ -27,7 +27,9 @@
         <module>02-components-endpoints-routes/02-01-file-to-simple-components</module>
         <module>02-components-endpoints-routes/02-02-file-to-bean</module>
         <module>02-components-endpoints-routes/02-03-file-to-jms</module>
+        <module>02-components-endpoints-routes/02-04-stdin-to-rest</module>
         <module>03-filtering-transformation-beans/03-01-filtering-strings</module>
+        <module>99-aux/rest-server</module>
     </modules>
 
     <build>

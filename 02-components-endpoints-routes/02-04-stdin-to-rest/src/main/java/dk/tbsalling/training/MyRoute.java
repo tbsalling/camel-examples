@@ -16,9 +16,29 @@ public class MyRoute extends RouteBuilder {
     // 3. Use postman or curl to check GET http://localhost:8080/vessels
 
     public void configure() {
+
         from("stream:in")
         .to("log:dk.tbsalling.training.camel")
         .process(exchange -> exchange.getIn().setHeader(Exchange.CONTENT_TYPE, MediaType.APPLICATION_JSON))
         .to("restlet:http://localhost:8080/vessel?restletMethod=POST");
+
+        // --- Playing with CBR and (un)marshalling
+
+        /*
+        from("stream:in")
+        .to("log:dk.tbsalling.training.camel")
+        .unmarshal().json(JsonLibrary.Jackson)
+        .to("log:dk.tbsalling.training.camel")
+            .choice()
+                .when().simple("${body[mmsi]} < 100000000")
+                    .log(LoggingLevel.WARN, "*** ${body}")
+                    .to("stream:err")
+                .otherwise()
+                    .to("stream:out")
+            .end()
+        .process(exchange -> exchange.getIn().setHeader(Exchange.CONTENT_TYPE, MediaType.APPLICATION_JSON))
+        .marshal().json(JsonLibrary.Jackson)
+        .to("restlet:http://localhost:8080/vessel?restletMethod=POST");
+        */
     }
 }
