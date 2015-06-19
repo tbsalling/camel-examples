@@ -14,8 +14,8 @@ public class MyRoute extends RouteBuilder {
     public void configure() {
 
         from("stream:in")
-        // .aggregate(constant("1"), new AggregationStrategy() {
-        .aggregate(body(String.class), new AggregationStrategy() {
+        .aggregate(constant("1"), new AggregationStrategy() {
+        //.aggregate(body(String.class), new AggregationStrategy() {
             @Override
             public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
                 if (oldExchange == null) return newExchange;
