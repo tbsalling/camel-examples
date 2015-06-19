@@ -32,5 +32,21 @@ public class MyRoute extends RouteBuilder {
         //.completionPredicate(exchange -> exchange.getIn().getBody(String.class).equalsIgnoreCase("ZZ"))
         .to("stream:err");
 
+        // ---
+
+        from("direct:A")
+        .aggregate(constant("1"), (oldExchange, newExchange) -> {
+            if (oldExchange == null) return newExchange;
+
+            String oldAsString = oldExchange.getIn().getBody(String.class);
+            String newAsString = newExchange.getIn().getBody(String.class);
+
+            oldExchange.getIn().setBody(oldAsString + newAsString);
+
+            return oldExchange;
+        })
+        .completionSize(3)
+        .to("stream:err");
+
     }
 }
