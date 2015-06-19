@@ -1,6 +1,8 @@
 package dk.tbsalling.training;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.processor.interceptor.DefaultTraceFormatter;
+import org.apache.camel.processor.interceptor.Tracer;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,6 +14,12 @@ public class MyRoute extends RouteBuilder {
     public static final String AIS_SENTENCE_COUNTER = "AIS.SENTENCE_COUNTER";
 
     public void configure() {
+
+        Tracer tracer = new Tracer();
+        getContext().addInterceptStrategy(tracer);
+
+        DefaultTraceFormatter traceFormatter = tracer.getDefaultTraceFormatter();
+        traceFormatter.setShowProperties(true);
 
         from("direct:ais")
         .aggregate(
@@ -41,8 +49,8 @@ public class MyRoute extends RouteBuilder {
 
             return cnt >= expectedMsgs;
         })
+        .completionTimeout(1000)
         .process(exchange1 -> exchange1.getIn().setBody(exchange1.getIn().getBody(String.class) + "\n---"))
-        .to("stream:err");
-
+        .to("stream:out");
     }
 }
