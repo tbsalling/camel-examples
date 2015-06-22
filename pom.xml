@@ -28,7 +28,10 @@
         <module>02-components-endpoints-routes/02-02-file-to-bean</module>
         <module>02-components-endpoints-routes/02-03-file-to-jms</module>
         <module>02-components-endpoints-routes/02-04-stdin-to-rest</module>
-        <module>03-filtering-transformation-beans/03-01-filtering-strings</module>
+        <module>02-components-endpoints-routes/02-10-routing</module>
+        <module>03-filtering-transformation-beans/03-01-transformation</module>
+        <module>04-enterprise-integration-patterns/04-01-aggregator</module>
+        <module>04-enterprise-integration-patterns/04-02-aggregator-ais</module>
         <module>99-aux/rest-server</module>
     </modules>
 
