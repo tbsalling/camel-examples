@@ -1,6 +1,6 @@
 package dk.tbsalling.training;
 
-public class ConverterBean {
+public class TranformerBean {
 
     public static String map(String body) {
         return "--> " + body;

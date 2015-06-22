@@ -30,7 +30,7 @@ public class MyRoute extends RouteBuilder {
 
         /*
         from("stream:in")
-        .bean(new ConverterBean())
+        .bean(new TranformerBean())
         .to("stream:out");
         */
 
