@@ -76,7 +76,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.2.1</version>
         <configuration>
-            <mainClass>dk.tbsalling.training.MainApp</mainClass>
+            <mainClass>dk.tbsalling.training.camel.MainApp</mainClass>
             <includePluginDependencies>false</includePluginDependencies>
         </configuration>
       </plugin>
