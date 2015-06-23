@@ -29,6 +29,11 @@ No. 2 - Filter the tweets
 If you used "Camel" as keyword for picking Tweets - then try
 to filter away sleazy tweets containing the sequence "Camel toe".
 
+No. 3 - CBR
+----
+Create a content-based router which logs sleazy tweets; and routes
+other tweets on to stream:out.
+
 
 
    
