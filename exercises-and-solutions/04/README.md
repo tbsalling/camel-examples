@@ -10,8 +10,7 @@ reception of tweets.
 No. 2 - Use the Aggregator EIP
 ----
 Modify the Twitter application from previous exercises to aggregate
-- bulks of 10 Tweets to stream:out
-- files containing 1 minutes of Tweets (using the file component)
+- bulks of 10 Tweets to stream:out; one tweet per line; bulks separated by ---
 
 No. 3 - Use the Load Balancer EIP
 ----
